@@ -1,3 +1,60 @@
+/* CSS reset by Josh W. Comeau */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
 :root {
 	/* Colours by Catppuccin */
 	--bg-pane: hsl(240 21% 15%); 
@@ -22,8 +79,136 @@
 }
 
 body {
-	background-color: var(--bg-pane);
+	background-color: var(--pane-light);
 	color: var(--text);
 	font-size: 18px;
-	line-height: 1.5;
+	font-family: "Fira Sans", sans-serif;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	margin: 48px 0;
+	font-size: 50px;
+	font-weight: 800;
+	text-align: center;
+}
+
+h2 {
+	font-weight: 600;
+}
+
+a {
+	color: var(--blue);
+	text-decoration: none;
+	margin: auto;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav {
+	padding: 1em;
+	border-bottom: 2px solid var(--overlay-dark);
+	box-shadow: 0 4px 8px black;
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+nav button {
+	background-color: transparent;
+	color: var(--subtext-dark);
+	box-shadow: none;
+	border: none;
+	padding: 8px 16px;
+	margin: 0;
+}
+
+nav button:hover {
+	background-color: transparent;
+	color: var(--blue);
+}
+
+button {
+	display: flex;
+	padding: 4px 8px;
+	margin: 1em auto 0 auto;
+	background-color: var(--overlay-dark);
+	border-radius: 12px;
+	border: 1px solid var(--overlay-light);
+	box-shadow: 4px 4px 8px black;
+	font-weight: 500;
+}
+
+button:hover {
+	background-color: var(--overlay-light);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#card-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+li.card {
+	height: 240px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+	padding: 1em;
+	width: clamp(300px, 95vw, 400px);
+	background-color: var(--bg-pane);
+	border: 2px solid var(--overlay-light);
+	border-radius: 8px;
+	box-shadow: 8px 8px 16px black;
+}
+
+.card p {
+	color: var(--subtext-dark);
+	margin: 4px 0;
+}
+
+.overflow-ellipsis {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	padding: 8px;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	font-weight: 500;
+}
+
+label + label {
+	margin-top: 1em;
+}
+
+textarea {
+	resize: vertical;
+}
+
+input,
+textarea {
+	font-weight: 400;
+	background-color: var(--overlay-light);
 }
