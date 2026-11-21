@@ -2,16 +2,17 @@
 	<%- include('headElement') %>
 	<body>
 		<%- include('navbar') %>
-		<h1><%= title %></h1>
-		<ul>
-			<% for (let i = 0; i < messages.length; i++) { %>
-				<li>
-					<h2> <%= messages[i].user %> </h2>
-					<p> <%= messages[i].text %> </p>
-					<p> <%= messages[i].added %> </p>
-					<a href="/message/<%= messages[i].id %>">Details</a>
-				</li>
-			<% } %>
-		</ul>
+		<main>
+			<h1><%= title %></h1>
+			<ul id="card-container">
+				<% for (let i = messages.length - 1; i >= 0; i--) { %>
+					<li class="card">
+						<h2> <%= messages[i].user %> </h2>
+						<p class="overflow-ellipsis"> <%= messages[i].text %> </p>
+						<a href="/message/<%= messages[i].id %>"><button>Details</button></a>
+					</li>
+				<% } %>
+			</ul>
+		</main>
 	</body>
 </html>
