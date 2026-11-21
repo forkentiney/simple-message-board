@@ -1,32 +1,23 @@
 const { Router } = require('express');
+const { getAllMessages } = require('../controllers/allMessages');
 
 const indexRouter = Router();
 
-const messages = [
-	{
-		text: "Hi there!",
-		user: "Amando",
-		added: new Date(),
-	},
-	{
-		text: "Hello world!",
-		user: "Charles",
-		added: new Date(),
-	},
-];
+//const messages = [
+//	{
+//		id: crypto.randomUUID(),
+//		text: "Hi there!",
+//		user: "Amando",
+//		added: new Date(),
+//	},
+//	{
+//		id: crypto.randomUUID(),
+//		text: "Hello world!",
+//		user: "Charles",
+//		added: new Date(),
+//	},
+//];
 
-indexRouter.get('/', (req, res) => {
-	res.render('index', { title: 'Mini Messageboard', messages: messages });
-});
-
-indexRouter.post('/new', (req, res) => {
-	const newMessage = {
-		text: req.body.text,
-		user: req.body.name,
-		added: new Date(),
-	};
-	messages.push(newMessage);
-	res.redirect('/');
-});
+indexRouter.get('/', getAllMessages);
 
 module.exports = indexRouter;

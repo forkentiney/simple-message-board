@@ -8,6 +8,7 @@
 					<h2> <%= messages[i].user %> </h2>
 					<p> <%= messages[i].text %> </p>
 					<p> <%= messages[i].added %> </p>
+					<a href="/message/<%= messages[i].id %>">Details</a>
 				</li>
 			<% } %>
 		</ul>
