@@ -1,0 +1,29 @@
+:root {
+	/* Colours by Catppuccin */
+	--bg-pane: hsl(240 21% 15%); 
+	--pane-light: hsl(240 21% 12%);
+	--pane-dark: hsl(240 23% 9%);
+	--surface-light: hsl(233 12% 39%);
+	--surface-medium: hsl(234 13% 31%);
+	--surface-dark: hsl(237 16% 23%);
+	--overlay-light: hsl(228 17% 64%);
+	--overlay-medium: hsl(230 13% 55%);
+	--overlay-dark: hsl(231 11% 47%);
+	--text: hsl(226 64% 88%);
+	--subtext-light: hsl(227 35% 80%);
+	--subtext-dark: hsl(228 24% 72%);
+	--subtitle: hsl(230 13% 55%);
+	--blue: hsl(217 92% 76%);
+	--green: hsl(115 54% 76%);
+	--yellow: hsl(41 86% 83%);
+	--red: hsl(343 81% 75%);
+	--primary: hsl(23 92% 75%);
+	--secondary: hsl(267 84% 81%);
+}
+
+body {
+	background-color: var(--bg-pane);
+	color: var(--text);
+	font-size: 18px;
+	line-height: 1.5;
+}
