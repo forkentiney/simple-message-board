@@ -1,20 +1,16 @@
-const messages = [
-	{
-		id: crypto.randomUUID(),
-		text: "Hi there!",
-		user: "Amando",
-		added: new Date(),
-	},
-	{
-		id: crypto.randomUUID(),
-		text: "Hello world!",
-		user: "Charles",
-		added: new Date(),
-	},
-];
+const messages = [];
 
 async function getAllMessages() {
-	return messages;
+	if (messages.length > 0) {
+		return messages;
+	} else {
+		return [{ 
+			id: crypto.randomUUID(),
+			user: 'No messages yet',
+			text: 'Create a new message by using the button above!',
+			added: new Date(),
+		}];
+	};
 };
 
 async function getMessageById(id) {
