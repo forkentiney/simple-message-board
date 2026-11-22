@@ -26,6 +26,7 @@ body {
 	color: var(--text);
 	font-size: 18px;
 	font-family: "Fira Sans", sans-serif;
+	min-height: 100vh;
 }
 
 header {
@@ -104,12 +105,18 @@ textarea:focus {
 	align-items: center;
 }
 
+.flex-start {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
 .column {
 	flex-direction: column;
 }
 
 .view-height-75 {
-	max-height: 75vh;
+	height: 75vh;
 }
 
 #message-container {
@@ -144,7 +151,7 @@ textarea:focus {
 #message-input {
 	width: clamp(300px, 95vw, 1000px);
 	gap: 1em;
-	margin-top: 1em;
+	margin: 1em 0 4em 0;
 	flex-wrap: wrap;
 }
 
@@ -159,6 +166,29 @@ textarea:focus {
 	resize: vertical;
 	min-width: 300px;
 	field-sizing: content;
+}
+
+.icon {
+	width: 32px;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	margin: 4px;
+}
+
+footer {
+	flex-wrap: wrap;
+	gap: 1em;
+	padding: 3em 1em;
+	background-color: var(--pane-light);
+	border-top: 2px solid var(--overlay-medium);
+	box-shadow: 0 -4px 16px black;
+	font-size: 14px;
+	color: var(--subtext-dark);
+}
+
+footer div {
+	width: clamp(300px, 25vw, 500px);
+	height: 5em;
 }
 
 @media (max-width: 500px) {
