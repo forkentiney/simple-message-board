@@ -1,8 +1,8 @@
 :root {
 	/* Colours by Catppuccin */
-	--bg-pane: hsl(240 21% 15%); 
+	--bg-pane: hsl(240 23% 9%);
 	--pane-light: hsl(240 21% 12%);
-	--pane-dark: hsl(240 23% 9%);
+	--pane-dark: hsl(240 21% 15%);
 	--surface-light: hsl(233 12% 39%);
 	--surface-medium: hsl(234 13% 31%);
 	--surface-dark: hsl(237 16% 23%);
@@ -22,136 +22,149 @@
 }
 
 body {
-	background-color: var(--pane-light);
+	background-color: var(--bg-pane);
 	color: var(--text);
 	font-size: 18px;
 	font-family: "Fira Sans", sans-serif;
-	display: flex;
-	flex-direction: column;
+}
+
+header {
+	margin: 2em 0;
 }
 
 h1 {
-	margin: 48px 0;
 	font-size: 50px;
 	font-weight: 800;
 	text-align: center;
 }
 
-h2 {
-	font-weight: 600;
+h3 {
+	font-weight: 500;
 }
 
 a {
 	color: var(--blue);
-	text-decoration: none;
 	margin: auto;
 }
 
-ul {
-	list-style: none;
-	padding: 0;
-}
-
-nav {
-	padding: 1em;
-	border-bottom: 2px solid var(--overlay-dark);
-	box-shadow: 0 4px 8px black;
-}
-
-nav ul {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
-
-nav button {
-	background-color: transparent;
-	color: var(--subtext-dark);
-	box-shadow: none;
-	border: none;
-	padding: 8px 16px;
-	margin: 0;
-}
-
-nav button:hover {
-	background-color: transparent;
-	color: var(--blue);
-}
-
 button {
-	display: flex;
-	padding: 4px 8px;
-	margin: 1em auto 0 auto;
-	background-color: var(--overlay-dark);
-	border-radius: 12px;
-	border: 1px solid var(--overlay-light);
-	box-shadow: 4px 4px 8px black;
+	background-color: var(--secondary);
+	color: var(--bg-pane);
 	font-weight: 500;
+	height: 2em;
+	padding: 0 12px;
+	border-radius: 6px;
+	border: none;
+	box-shadow: 0 0 16px black;
+}
+
+#message-submit {
+	flex-basis: 86px;
 }
 
 button:hover {
-	background-color: var(--overlay-light);
-}
-
-main {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-#card-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-}
-
-li.card {
-	height: 240px;
-}
-
-.card {
-	display: flex;
-	flex-direction: column;
-	margin: 1em;
-	padding: 1em;
-	width: clamp(300px, 95vw, 400px);
-	background-color: var(--bg-pane);
-	border: 2px solid var(--overlay-light);
-	border-radius: 8px;
-	box-shadow: 8px 8px 16px black;
-}
-
-.card p {
-	color: var(--subtext-dark);
-	margin: 4px 0;
-}
-
-.overflow-ellipsis {
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	padding: 8px;
-}
-
-label {
-	display: flex;
-	flex-direction: column;
-	font-weight: 500;
-}
-
-label + label {
-	margin-top: 1em;
-}
-
-textarea {
-	resize: vertical;
+	background-color: var(--green);
+	box-shadow: 0 0 8px var(--blue);
 }
 
 input,
 textarea {
-	font-weight: 400;
 	background-color: var(--overlay-light);
+	color: var(-bg-pane);
+	font-family: "Fira Sans", sans-serif;
+	border-radius: 6px;
+	border: 2px solid var(--surface-dark);
+	box-shadow: 0 0 16px black;
+	padding: 4px 8px;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--blue);
+	box-shadow: 0 0 8px var(--blue);
+}
+
+.flex {
+	display: flex;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
+.grow-5 {
+	flex-grow: 5;
+}
+
+.flex-centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.view-height-75 {
+	max-height: 75vh;
+}
+
+#message-container {
+	flex-direction: column-reverse;
+	overflow: scroll;
+	background-color: var(--pane-dark);
+	list-style: none;
+	padding: 0;
+	width: clamp(300px, 95vw, 1000px);
+	border: 1px solid var(--overlay-light);
+	border-radius: 8px;
+	box-shadow: 0 0 32px black;
+}
+
+.message + .message {
+	border-bottom: 1px solid var(--overlay-dark);
+}
+
+.message {
+	padding: 8px 16px;
+}
+
+.message-text {
+	color: var(--subtext-light);
+}
+
+.message-date {
+	align-self: flex-end;
+	color: var(--subtext-dark);
+}
+
+#message-input {
+	width: clamp(300px, 95vw, 1000px);
+	gap: 1em;
+	margin-top: 1em;
+	flex-wrap: wrap;
+}
+
+#input-name {
+	width: 15ch;
+	height: 39px;
+}
+
+#input-text {
+	max-height: 10em;
+	min-height: 39px;
+	resize: vertical;
+	min-width: 300px;
+	field-sizing: content;
+}
+
+@media (max-width: 500px) {
+	label,
+	input,
+	textarea {
+		flex-grow: 1;
+	}
 }
