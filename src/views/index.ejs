@@ -3,18 +3,28 @@
 <html>
 	<%- include('headElement') %>
 	<body>
-		<%- include('navbar') %>
+		<%- include('header') %>
 		<main>
-			<h1><%= title %></h1>
-			<ul id="card-container">
-				<% for (let i = messages.length - 1; i >= 0; i--) { %>
-					<li class="card">
+			<ul id="message-container">
+				<% for (let i = 0; i < messages.length; i++) { %>
+					<li class="message">
 						<h2> <%= messages[i].user %> </h2>
-						<p class="overflow-ellipsis"> <%= messages[i].text %> </p>
-						<a href="/message/<%= messages[i].id %>"><button>Details</button></a>
+						<p> <%= messages[i].text %> </p>
+						<p> <%= messages[i].added.toLocaleString() %> </p>
 					</li>
 				<% } %>
 			</ul>
+			<form method="POST" action="/">
+				<label>
+					Name:
+					<input type="text" name="name" />
+				</label>
+				<label>
+					Message:
+					<textarea type="text" name="text"></textarea>
+				</label>
+				<button>Submit</button>
+			</form>
 		</main>
 	</body>
 </html>
