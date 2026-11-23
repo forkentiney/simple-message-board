@@ -7,6 +7,6 @@
 	"name": "Simple Message Board",
 	"version": "2.0",
 	"scripts": {
-		"start": "node --env-file=src/.env src/models/createTable.js"
+		"start": "node --env-file-if-exists=src/.env src/models/createTable.js"
 	}
 }
