@@ -1,5 +1,5 @@
 FROM node:22-alpine
-WORKDIR /tmp
+WORKDIR /usr/src/app
 COPY package*.json entrypoint.sh ./
 RUN npm ci --omit=dev
 COPY src/ ./app/
