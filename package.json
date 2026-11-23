@@ -1,6 +1,12 @@
 {
   "dependencies": {
     "ejs": "^7.0.2",
-    "express": "^5.3.0"
-  }
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  },
+	"name": "Simple Message Board",
+	"version": "2.0",
+	"scripts": {
+		"start": "node --env-file=src/.env src/models/createTable.js"
+	}
 }

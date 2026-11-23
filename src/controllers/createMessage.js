@@ -1,11 +1,9 @@
-const db = require('../models/db');
+const db = require('../models/queries');
 
 function createNewMessage(req, res) {
 	const newMessage = {
-		id: crypto.randomUUID(),
-		text: req.body.text,
-		user: req.body.name,
-		added: new Date(),
+		message: req.body.text,
+		name: req.body.name,
 	};
 	db.createNewMessage(newMessage);
 	res.redirect('/');

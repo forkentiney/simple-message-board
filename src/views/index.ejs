@@ -8,8 +8,8 @@
 			<ul id="message-container" class="flex">
 				<% for (let i = messages.length - 1; i >= 0; i--) { %>
 					<li class="message flex column">
-						<h3> <%= messages[i].user %> </h3>
-						<p class="message-text"> <%= messages[i].text %> </p>
+						<h3> <%= messages[i].name %> </h3>
+						<p class="message-text"> <%= messages[i].message %> </p>
 						<p class="message-date"> <%= messages[i].added.toLocaleString() %> </p>
 					</li>
 				<% } %>

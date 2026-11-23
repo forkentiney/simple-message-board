@@ -1,4 +1,4 @@
-const db = require('../models/db');
+const db = require('../models/queries');
 
 async function getAllMessages(req, res) {
 	const messages = await db.getAllMessages();
