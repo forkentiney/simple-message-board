@@ -5,7 +5,7 @@
     "pg": "^8.23.1"
   },
 	"name": "Simple Message Board",
-	"version": "2.0",
+	"version": "2.3",
 	"scripts": {
 		"start": "node --env-file-if-exists=src/.env src/models/createTable.js",
 		"docker": "node ./app/models/createTable.js"
